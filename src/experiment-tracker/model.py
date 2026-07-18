@@ -1,5 +1,5 @@
 from sklearn.metrics import accuracy_score
-
+from .decorator import timer, log_errors, retry
 from abc import ABC, abstractmethod  
 
 class BaseModel(ABC):
@@ -27,6 +27,9 @@ class LogisticRegression(BaseModel):
         self.model = LogisticRegression(**model_params)
         self.is_trained = False
 
+    @timer
+    @log_errors
+    @retry(n=3)
     def train(self, X_train, y_train):
         self.model.fit(X_train, y_train)
         self.is_trained = True
