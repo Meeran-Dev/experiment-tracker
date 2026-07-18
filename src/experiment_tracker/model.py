@@ -17,7 +17,7 @@ class BaseModel(ABC):
     def predict(self, X):
         pass
 
-class LogisticRegression(BaseModel):
+class LogisticRegressionModel(BaseModel):
     """Wraps a scikit-learn Logistic Regression classifier with train/evaluate/predict methods."""
 
     def __init__(self, **model_params):
@@ -46,7 +46,7 @@ class LogisticRegression(BaseModel):
             raise RuntimeError("Model must be trained before prediction.")
         return self.model.predict(X)
 
-class RandomForest(BaseModel):
+class RandomForestModel(BaseModel):
     """Wraps a scikit-learn Random Forest classifier with train/evaluate/predict methods."""
 
     def __init__(self, **model_params):

@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-class DataSet:
+class Dataset:
     
     def __init__(self, csv_path: str):
         self.csv_path = csv_path
